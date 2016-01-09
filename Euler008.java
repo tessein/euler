@@ -1,3 +1,4 @@
+// BUG - does not produce correct results
 public class Euler008 {
 	/**
 	 * @param args
