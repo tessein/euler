@@ -15,10 +15,16 @@ public class Euler004 {
 		for (int i = 100; i <= 999; i++)
 			for (int j = 100; j <= 999; j++) {
 				int cand = i * j;
-				if (Utility.isNumericPalindrome(cand))
+				if (isNumericPalindrome(cand))
 					palindromes.add(cand);
 			}
 		System.out.println("Euler004 = " + palindromes.last() + " - finished in "
 		    + (System.currentTimeMillis() - startTime) + " millis");
+	}
+	protected static boolean isNumericPalindrome(final int candidate) {
+		final StringBuilder val = new StringBuilder(String.valueOf(candidate));
+		if (val.toString().equals(val.reverse().toString()))
+			return true;
+		return false;
 	}
 }
