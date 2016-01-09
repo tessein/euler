@@ -14,7 +14,7 @@ public class Euler024 {
 		int idxFactRoot = 999999;
 		final ArrayList<Integer> adics = new ArrayList<Integer>();
 		for (int i = 9; i >= 0; i--) {
-			long idxFact = Utility.factorial(i);
+			long idxFact = factorial(i);
 			final int adic = ((int) (idxFactRoot / idxFact));
 			adics.add(adic);
 			idxFactRoot -= (adic * idxFact);
@@ -34,5 +34,11 @@ public class Euler024 {
 			answer += String.valueOf(j);
 		System.out.println("Euler024 = " + answer + " - finished in "
 		    + (System.currentTimeMillis() - startTime) + " millis.");
+	}
+	protected static long factorial(final long aLong) {
+		if (aLong < 2)
+			return 1L;
+		else
+			return aLong * factorial(aLong -1);
 	}
 }
