@@ -1,24 +1,28 @@
-/**
- * @author ctessein
- * 
- */
+
 public class Euler034 {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		long startTime = System.currentTimeMillis();
-		long total = 0;
-		for (long i = 1; i <= 9999999; i++) {
-			int[] digits = Utility.getDigits(i);
-			long sum = 0;
-			for (int aDigit : digits)
-				sum += Utility.factorial(aDigit);
-			if (sum == i)
+	public static void main (String[] arga) {
+		int total = 0;
+		for (int i = 3; i <= 100000; i++) {
+			String raw = "" + i;
+			char[] digits = raw.toCharArray();
+		    int[] num = new int[raw.length()];
+		    for (int j = 0; j < raw.length(); j++) 
+		        num[j] = raw.charAt(j) - '0';
+			int sum = 0;
+			for (int j = 0;j < digits.length; j++) 
+				sum += factorial(num[j]);
+			if (sum == i) {
 				total += sum;
+				System.out.println(i + " : " + sum);
+			}
 		}
-		System.out.println("Euler034 = " + total + " - finished in "
-		    + (System.currentTimeMillis() - startTime) + " millis");
+		System.out.println(total);
+	}
+	protected static long factorial(final long aLong) {
+		if (aLong == 0)
+			return 1;
+		else
+			return aLong * factorial(aLong-1);
 	}
 }
