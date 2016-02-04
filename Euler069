@@ -1,0 +1,11 @@
+def totient(maxVal) {
+  def maxn = 1
+  [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41].each {
+    prime -> 
+      if ((maxn * prime) > maxVal) return maxn
+      maxn *= prime
+  }
+  return maxn
+}
+
+print totient(1000000)
