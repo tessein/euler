@@ -1,6 +1,6 @@
 /**
  * @author ctessein
- * 
+ * test
  */
 public class Euler030 {
 
